@@ -4,7 +4,7 @@ class SignInPageObject extends PageObject {
   email = 'arthur@gmail.com';
   password = '12345qwert';
   username = 'arthur';
-  url = '/user/login';
+  url = 'https://conduit.mate.academy/user/login';
 
   get emailField() {
     return cy.get('input[type="email"]');
