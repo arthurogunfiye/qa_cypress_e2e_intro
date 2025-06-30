@@ -1,12 +1,12 @@
 /// <reference types="cypress" />
-import SignInPageObject from '../support/pages/signIn.pageObject';
-
-const signInPage = new SignInPageObject();
 
 describe('Sign In page', () => {
   it('should provide an ability to log in', () => {
-    cy.visit(signInPage.url);
-    signInPage.fillAndSubmitSignInForm(signInPage.email, signInPage.password);
-    signInPage.usernameDisplay.should('contain', signInPage.username);
+    cy.visit('https://conduit.mate.academy/user/login');
+
+    cy.get('input[type="email"]').type('arthur@gmail.com');
+    cy.get('input[type="password"]').type('12345qwert');
+    cy.get('button[type="submit"]').click();
+    cy.get('.nav-link').should('contain', 'arthur');
   });
 });
